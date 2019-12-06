@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class GameMap {
     private ArrayList<StaticSprite> mapObjects;
-    private Physics physics;
 
     public void addObject(StaticSprite mapObject) {
         for (StaticSprite m : mapObjects) {
@@ -35,24 +34,4 @@ public class GameMap {
         }
         return false;
     }
-
-    public boolean playerLeft(Player player) {
-        for (StaticSprite m : mapObjects) {
-            if (m.playerLeft(player)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean playerRight(Player player) {
-        for (StaticSprite m : mapObjects) {
-            if (m.playerRight(player)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
 }

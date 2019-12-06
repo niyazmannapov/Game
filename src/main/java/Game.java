@@ -1,8 +1,5 @@
 import component.GameMap;
 import component.Player;
-import component.Sprite;
-import component.sprites.DynamicSprite;
-import component.sprites.StaticSprite;
 import controllers.MapController;
 import javafx.application.Application;
 import javafx.scene.Group;

@@ -1,12 +1,9 @@
 package component.sprites;
 
 import component.Player;
-import component.Sprite;
 import javafx.scene.image.Image;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Data
@@ -32,13 +29,4 @@ public class StaticSprite extends Sprite {
                 player.getSprite().getPositionX() >= this.getBoundary().getMinX();
     }
 
-    public boolean playerLeft(Player player) {
-        return player.getSprite().getBoundary().getMaxX() == this.getBoundary().getMinX() &&
-                player.getSprite().getBoundary().intersects(this.getBoundary());
-    }
-
-    public boolean playerRight(Player player) {
-        return player.getSprite().getBoundary().getMinX() == this.getBoundary().getMaxX() &&
-                player.getSprite().getBoundary().intersects(this.getBoundary());
-    }
 }

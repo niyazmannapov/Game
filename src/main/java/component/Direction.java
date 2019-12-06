@@ -1,5 +1,5 @@
 package component;
 
 public enum Direction {
-    LEFT, RIGHT;
+    LEFT, RIGHT, UP;
 }

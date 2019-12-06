@@ -4,7 +4,9 @@ import component.sprites.DynamicSprite;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @Data
 @AllArgsConstructor
@@ -15,20 +17,45 @@ public class Player {
     }
 
     private DynamicSprite sprite;
-    private boolean inJump;
-    private boolean inFall;
-    private Direction direction;
+    private boolean isJumped;
+    private Turn turn;
+    private GameMap gameMap;
+    private HashMap<Direction, Integer> directions;
+    private int jumpTick = 100;
+
 
     private Bullet shoot() {
-        return new Bullet(this.sprite.positionX, this.sprite.positionY, this.direction);
+        return new Bullet(this.sprite.getPositionX(), this.sprite.getPositionY(), this.turn);
     }
 
-    private void jump() {
+    public void updatePosition() {
+        if (!gameMap.playerOnSprite(this) && !isJumped) {
+            fall();
+        }
+        if (directions.containsKey(Direction.LEFT)) {
+            goLeft();
+        }
+        if (directions.containsKey(Direction.RIGHT)) {
+            goRight();
+        }
+        if (directions.containsKey(Direction.UP)) {
+            up();
+        }
+    }
+
+    private void up() {
+        sprite.updateY(-1);
+    }
+
+    private void fall() {
+        sprite.updateY(1);
     }
 
     private void goLeft() {
+        sprite.updateX(1);
     }
 
     private void goRight() {
+        sprite.updateX(-1);
     }
 }

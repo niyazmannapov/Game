@@ -11,37 +11,37 @@
    </ImageView>
 
    <AnchorPane fx:id="mapObjects" prefHeight="200.0" prefWidth="200.0">
-       <ImageView fx:id="" fitHeight="81.0" fitWidth="546.0" layoutX="292.0" layoutY="491.0" pickOnBounds="true">
+       <ImageView fitHeight="81.0" fitWidth="546.0" layoutX="292.0" layoutY="491.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>
        </ImageView>
-       <ImageView fx:id="mapObject" fitHeight="81.0" fitWidth="271.0" layoutX="1178.0" layoutY="758.0" pickOnBounds="true">
+       <ImageView fitHeight="64.0" fitWidth="271.0" layoutX="1178.0" layoutY="758.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>
        </ImageView>
-       <ImageView fitHeight="81.0" fitWidth="788.0" layoutX="245.0" layoutY="758.0" pickOnBounds="true">
+       <ImageView fitHeight="64.0" fitWidth="788.0" layoutX="245.0" layoutY="758.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>
        </ImageView>
-       <ImageView fitHeight="81.0" fitWidth="288.0" layoutX="991.0" layoutY="497.0" pickOnBounds="true">
+       <ImageView fitHeight="64.0" fitWidth="288.0" layoutX="991.0" layoutY="497.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>
        </ImageView>
-       <ImageView fitHeight="81.0" fitWidth="572.0" layoutX="606.0" layoutY="105.0" pickOnBounds="true">
+       <ImageView fitHeight="64.0" fitWidth="572.0" layoutX="606.0" layoutY="105.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>
        </ImageView>
-       <ImageView fitHeight="81.0" fitWidth="533.0" layoutX="911.0" layoutY="297.0" pickOnBounds="true">
+       <ImageView fitHeight="64.0" fitWidth="533.0" layoutX="911.0" layoutY="297.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>
        </ImageView>
-       <ImageView fitHeight="72.0" fitWidth="355.0" layoutX="350.0" layoutY="297.0" pickOnBounds="true">
+       <ImageView fitHeight="64.0" fitWidth="355.0" layoutX="350.0" layoutY="297.0" pickOnBounds="true">
            <image>
                <Image url="@/images/platformPack_tilesheet.png" />
            </image>

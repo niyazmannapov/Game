@@ -10,12 +10,11 @@ import java.util.ArrayList;
 @Data
 public class Battle implements Runnable {
     private GameMap map;
-    private Physics physics;
     private ArrayList<ClientHandler> players;
+    private ArrayList<Bullet> bullets;
 
     public Battle(ArrayList<ClientHandler> players) {
         MapController mapController = new MapController();
-        physics = new Physics();
         this.map = mapController.loadMap();
         this.players = players;
     }

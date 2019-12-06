@@ -2,7 +2,6 @@ package controllers;
 
 
 import component.GameMap;
-import component.Sprite;
 import component.sprites.StaticSprite;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
