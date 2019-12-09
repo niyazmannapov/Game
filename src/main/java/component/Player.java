@@ -33,15 +33,32 @@ public class Player {
             fall();
         }
         if (directions.containsKey(Direction.LEFT)) {
+            int i = directions.get(Direction.LEFT);
+            directions.put(Direction.LEFT, i--);
             goLeft();
+            if (i == 0) {
+                directions.remove(Direction.LEFT);
+            }
         }
         if (directions.containsKey(Direction.RIGHT)) {
+            int i = directions.get(Direction.RIGHT);
+            directions.put(Direction.RIGHT, i--);
             goRight();
+            if (i == 0) {
+                directions.remove(Direction.RIGHT);
+            }
         }
         if (directions.containsKey(Direction.UP)) {
+            int i = directions.get(Direction.UP);
+            directions.put(Direction.UP, i--);
             up();
+            if (i == 0 || gameMap.playerUnderSprite(this)) {
+                directions.remove(Direction.UP);
+                isJumped = false;
+            }
         }
     }
+
 
     private void up() {
         sprite.updateY(-1);
