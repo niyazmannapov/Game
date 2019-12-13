@@ -1,37 +1,48 @@
 package component;
 
-import component.sprites.StaticSprite;
+import lombok.Data;
 
 import java.util.ArrayList;
 
+@Data
 public class GameMap {
-    private ArrayList<StaticSprite> mapObjects;
+    private  ArrayList<GameCircle> gameCircleArrayList;
+    private  ArrayList<Food> foodArrayList;
+    private static GameMap instance;
 
-    public void addObject(StaticSprite mapObject) {
-        for (StaticSprite m : mapObjects) {
-            if (m.getBoundary().intersects(mapObject.getBoundary())) {
-                throw new IllegalStateException("Позиция занята");
-            }
-        }
-        mapObjects.add(mapObject);
-
+    public  ArrayList<GameCircle> getGameCircleArrayList() {
+        return gameCircleArrayList;
     }
 
-    public boolean playerOnSprite(Player player) {
-        for (StaticSprite m : mapObjects) {
-            if (m.under(player)) {
-                return true;
-            }
-        }
-        return false;
+    public  void setGameCircleArrayList(ArrayList<GameCircle> gameCircleArrayList) {
+        this.gameCircleArrayList = gameCircleArrayList;
     }
 
-    public boolean playerUnderSprite(Player player) {
-        for (StaticSprite m : mapObjects) {
-            if (m.on(player)) {
-                return true;
-            }
-        }
-        return false;
+    public  ArrayList<Food> getFoodArrayList() {
+        return foodArrayList;
+    }
+
+    public void setFoodArrayList(ArrayList<Food> foodArrayList) {
+        this.foodArrayList = foodArrayList;
+    }
+
+    private GameMap() {
+        gameCircleArrayList = new ArrayList<>();
+        foodArrayList = new ArrayList<>();
+        instance = this;
+    }
+
+    public static GameMap getInstance() {
+        if (instance == null) {
+            return new GameMap();
+        } else return instance;
+    }
+
+    public void addGameCircle(GameCircle gc) {
+        this.gameCircleArrayList.add(gc);
+    }
+
+    public  void addFood(Food food) {
+        this.foodArrayList.add(food);
     }
 }
