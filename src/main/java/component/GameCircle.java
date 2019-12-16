@@ -61,20 +61,26 @@ public class GameCircle extends Circle implements Runnable {
         velocityY = y;
     }
 
+
     @Override
     public void run() {
-        ArrayList<GameCircle> gameCircleArrayList = new ArrayList<>(gameMap.getGameCircleArrayList());
-        for (GameCircle gc : gameCircleArrayList) {
-            if ((this.intersects(gc.getLayoutBounds())) && gc != this && gc.getRadius() < this.getRadius()) {
-                this.setRadius(this.getRadius() + gc.getRadius());
-                gameMap.getGameCircleArrayList().remove(gc);
+
+        while (true) {
+            ArrayList<GameCircle> gameCircleArrayList = new ArrayList<>(gameMap.getGameCircleArrayList());
+            for (GameCircle gc : gameCircleArrayList) {
+                if ((this.getBoundsInLocal().intersects(gc.getBoundsInLocal())) && gc.getRadius() < this.getRadius()) {
+                    this.setRadius(this.getRadius() + gc.getRadius());
+                    gameMap.getGameCircleArrayList().remove(gc);
+                }
             }
-        }
-        ArrayList<Food> foodArrayList = new ArrayList<>(gameMap.getFoodArrayList());
-        for (Food food : foodArrayList) {
-            if ((this.intersects(food.getLayoutBounds()))) {
-                this.setRadius(this.getRadius() + 1);
-                gameMap.getFoodArrayList().remove(food);
+            ArrayList<Food> foodArrayList = new ArrayList<>(gameMap.getFoodArrayList());
+            for (Food food : foodArrayList) {
+                System.out.println(food.getBoundsInLocal());
+                if ((this.getBoundsInLocal().intersects(food.getBoundsInLocal()))) {
+                    System.out.println(true);
+                    this.setRadius(this.getRadius() + 1);
+                    gameMap.getFoodArrayList().remove(food);
+                }
             }
         }
     }

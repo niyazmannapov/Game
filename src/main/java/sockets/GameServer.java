@@ -46,7 +46,7 @@ public class GameServer {
                 while (true) {
                     gameMap.addFood(new Food(random.nextInt(900), random.nextInt(1600)));
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
